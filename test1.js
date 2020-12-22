@@ -1,5 +1,3 @@
-// import { CopyPasteEventModule } from './classes/CopyPasteEventModule'
-
 let inputField, startButton, stopButton
 inputField = document.getElementById('inputField')
 
