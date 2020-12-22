@@ -1,28 +1,31 @@
 class CopyPasteEventModule {
+    #elem = null
+    #cbCopy = null
+    #cbPaste = null
     constructor (elem, callbacks) {
         if (typeof elem === 'object' && elem instanceof HTMLElement)
-            this._elem = elem
+            this.#elem = elem
 
         if (callbacks) {
             if (callbacks.cbCopy && typeof callbacks.cbCopy === 'function')
-                this._cbCopy = callbacks.cbCopy
+                this.#cbCopy = callbacks.cbCopy
             if (callbacks.cbPaste && typeof callbacks.cbPaste === 'function')
-                this._cbPaste = callbacks.cbPaste
+                this.#cbPaste = callbacks.cbPaste
         }
     }
 
     start () {
-        if (this._elem && this._cbCopy)
-            this._elem.addEventListener('copy', this._cbCopy)
-        if (this._elem && this._cbPaste)
-            this._elem.addEventListener('paste', this._cbPaste)
+        if (this.#elem && this.#cbCopy)
+            this.#elem.addEventListener('copy', this.#cbCopy)
+        if (this.#elem && this.#cbPaste)
+            this.#elem.addEventListener('paste', this.#cbPaste)
         console.log('CopyPasteEventModule started...')
     }
 
     stop () {
-        if (this._elem) {
-            this._elem.removeEventListener('copy', this._cbCopy)
-            this._elem.removeEventListener('paste', this._cbPaste)
+        if (this.#elem) {
+            this.#elem.removeEventListener('copy', this.#cbCopy)
+            this.#elem.removeEventListener('paste', this.#cbPaste)
         }
         console.log('CopyPasteEventModule stoped...')
     }
