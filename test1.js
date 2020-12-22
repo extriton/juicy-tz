@@ -1,3 +1,5 @@
+// import { CopyPasteEventModule } from './classes/CopyPasteEventModule'
+
 let inputField, startButton, stopButton
 inputField = document.getElementById('inputField')
 
@@ -13,7 +15,7 @@ function cbPaste (event) {
 
 inputFieldObj = new CopyPasteEventModule(inputField, { cbCopy, cbPaste })
 
-window.onload = function () {
+window.onload = () => {
     // Add buttons listeners
     startButton = document.getElementById('startButton')
     stopButton = document.getElementById('stopButton')
